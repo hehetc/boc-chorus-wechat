@@ -1,0 +1,14 @@
+
+.welcome {
+  margin:80rpx auto;
+  padding:20rpx;
+  font-size:40rpx;
+  color:mediumseagreen;
+  text-align: center;
+}
+
+.start-button {
+  margin: 100rpx auto;
+  margin-bottom:0rpx;
+  width:60%;
+}

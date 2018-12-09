@@ -1,0 +1,12 @@
+
+<view class='welcome'>
+    <text>欢迎使用BOC合唱团签到小应用</text>
+</view>
+
+<view class='container'>
+  <image src='{{start_image_path}}' class='start-image' mode='aspectFill'></image>
+</view>
+
+<view class='start-button'>
+  <button class="weui-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">开始使用</button>
+</view>

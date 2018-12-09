@@ -1,0 +1,78 @@
+<view class="page">
+    <view class="page_detail_hd">
+        <view class="page_detail_title">{{activity_info.infos[0].F_Caption}}</view>
+    </view>
+    <view class="weui-cell" bindtap='getActivity_detail'>
+        <view class="weui-cell__hd">
+            <image class='cell_image' src='../../image/right.png'></image>
+            <view class="weui-label label_head">活动详情</view>
+        </view>
+    </view>
+    <view class="weui-cell desc_content" hidden='{{!detail_show}}'>
+        <view class="weui-cell__bd">
+            <view>发起人： {{activity_info.infos[0].F_CreaterName}}</view>
+            <view>活动时间： {{activity_info.infos[0].F_EndDate}}</view>
+            <view>活动地点： {{activity_info.infos[0].F_Location}}</view>
+            <view>活动简介： {{activity_info.infos[0].F_Desc}}</view>
+        </view>
+    </view>
+
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+            <image class='cell_image' src='../../image/right.png'></image>
+            <view class="weui-label label_head">已有{{activity_info.nums}}人签到</view>
+        </view>
+    </view>
+    <view class="weui-cell" bindtap='getDetailedCheck'>
+        <view class="weui-cell__hd">
+            <image class='cell_image' src='../../image/right.png'></image>
+            <view class="weui-label label_head">已签到记录</view>
+        </view>
+    </view>
+
+     <view hidden='{{check_info_hidden}}'>
+        <block wx:for='{{detail_info.details}}'>
+            <view class="weui-cell__bd">
+                <view class='label_name'>
+                    {{item.F_UserName}}
+                </view>
+            </view>
+        </block>
+    </view> 
+
+    <view class="weui-cell" hidden='{{location_check_hidden}}'>
+        <view class="weui-cell__hd">
+          <view class="weui-label label_head">
+        <view class='check_group'>
+            <view class='group_item'>
+                <button class="weui-btn mini-btn" disabled='{{location_disabled}}' type="primary" size="mini" bindtap='locationCheck'>地点验证</button>
+                <view class='text_item'>{{location_res}}
+                    <icon type="success_no_circle" hidden='{{!location_check_passed}}'></icon>
+                </view>
+
+            </view>
+        </view>
+          </view>
+        </view>
+    </view>
+
+
+    <view class="button-sp-area">
+        <button class="weui-btn" disabled='{{!location_check_passed}}' type="primary" bindtap='submitCheck'>{{apply_msg}}</button>
+    </view>
+
+    <div class="icon_sp_area" style="width:40rpx">
+      <i class="weui_icon_success"></i>
+      <i class="weui_icon_success_circle"></i>
+      <i class="weui_icon_success_no_circle"></i>
+      <i class="weui_icon_info"></i>
+      <i class="weui_icon_waiting"></i>
+      <i class="weui_icon_waiting_circle"></i>
+      <i class="weui_icon_circle"></i>
+      <i class="weui_icon_warn"></i>
+      <i class="weui_icon_download"></i>
+      <i class="weui_icon_info_circle"></i>
+  </div>
+
+
+</view>
