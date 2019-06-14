@@ -1,16 +1,50 @@
 <view class='container'>
-  <image src='{{avator_path}}' class='avator' mode='aspectFill'></image>
+  <image src='{{avatar_path}}' class='avator' mode='aspectFill'></image>
 </view>
 <view class='user-info'>
   <view class='item'>
-    <text>姓名：</text>
+    <text>昵称：</text>
     <text>{{ userInfo.nickName }}</text>
   </view>
   <view class='item'>
     <text>城市：</text>
     <text>{{ userInfo.city }}</text>
   </view>
+  <view class='item' wx:if="{{hasRealName}}">
+    <text>真实姓名：</text>
+    <text>{{ realname }}</text>
+  </view>
+  <view class='item' wx:if="{{hasRealName}}">
+    <text>手机号：</text>
+    <text>{{ mobile }}</text>
+  </view>
 </view>
 <view class='update-info'>
-  <button class="weui-btn" type="primary" bindtap='changeAvator'>更改信息</button>
+  <button class="weui-btn" type="primary" bindtap="powerDrawer" data-statu="open">{{button_text}}</button>
+</view>
+  
+<!--mask-->  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+
+
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  
+    <!--drawer content-->  
+    <view class="drawer_title">{{drawer_title}}</view>
+
+    <form bindsubmit='addUserInfo'>
+      <view class="drawer_content">  
+        <view class="top grid">  
+          <label class="title col-0">真实姓名</label>  
+          <input class="input_base input_h30 col-1" name="rName" value=""></input>  
+        </view>  
+        <view class="top grid">  
+          <label class="title col-0">手机号</label>  
+          <input class="input_base input_h30 col-1" name="mobile" value=""></input>  
+        </view>  
+    
+      </view> 
+      <button class="btn_ok" form-type='submit' bindtap="powerDrawer" data-statu="close">确定 </button> 
+    </form> 
+
 </view>

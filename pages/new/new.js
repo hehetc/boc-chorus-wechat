@@ -133,6 +133,7 @@ Page({
         var ifLocation = 1;
         var ifFace = 0;
         var value = e.detail.value;
+        console.log("【new.js】创建活动待提交的活动信息：");
         console.log(value);
         // //根据勾选，设置认证方式
         // var types = value.checkin_types;

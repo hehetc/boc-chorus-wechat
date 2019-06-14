@@ -19,6 +19,7 @@
                                         <view class="weui-media-box__title weui-media-box__title_in-text">{{item.F_Caption}}</view>
                                         <view class="weui-media-box__desc">{{item.F_EndDate}}</view>
                                         <view class="weui-media-box__desc">{{item.F_Location}}</view>
+                                        <view>{{item.haveChecked}}</view>
                                     </view>
                                 </navigator>
                             </block>

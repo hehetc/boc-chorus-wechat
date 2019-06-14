@@ -18,13 +18,9 @@ var face = null;
 var location = null;
 var activity_id=null;
 var activity_title = null;
-
 var location_check_res = false;
 
-
-
 Page({
-
   /**
    * 页面的初始数据
    */

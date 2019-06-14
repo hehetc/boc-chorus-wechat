@@ -1,5 +1,11 @@
 //服务器地址
-var url = 'https://www.cztcjxsb.cn/checkin' 
+// var url = 'https://www.cztcjxsb.cn/checkin' 
+// var url = 'http://localhost:8083/checkin' 
+// var url = 'http://94.191.56.233:8083/checkin' 
+
+var url = 'https://nicat.cn/checkin'
+
+
 //腾讯云对象存储鉴权地址
 var cosSignatureUrl = '';
 //腾讯云对象存储的区域：华东地区为sh

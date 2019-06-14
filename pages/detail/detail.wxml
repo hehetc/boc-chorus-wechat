@@ -17,16 +17,18 @@
         </view>
     </view>
 
-    <view class="weui-cell">
+    <!-- <view class="weui-cell">
         <view class="weui-cell__hd">
             <image class='cell_image' src='../../image/right.png'></image>
             <view class="weui-label label_head">已有{{activity_info.nums}}人签到</view>
         </view>
-    </view>
+    </view> -->
+
     <view class="weui-cell" bindtap='getDetailedCheck'>
         <view class="weui-cell__hd">
             <image class='cell_image' src='../../image/right.png'></image>
             <view class="weui-label label_head">已签到记录</view>
+            <view class="weui-label label_head">（共{{activity_info.nums}}人）</view>
         </view>
     </view>
 

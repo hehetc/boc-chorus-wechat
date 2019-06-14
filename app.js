@@ -1,48 +1,13 @@
 //app.js
+
 var config = require('./config.js');
 App({
     onLaunch: function () {
-        // // 展示本地存储能力
-        // var logs = wx.getStorageSync('logs') || []
-        // logs.unshift(Date.now())
-        // wx.setStorageSync('logs', logs)
-        
-        // wx.getUserInfo({
-        //     success: res => {
-        //         // 可以将 res 发送给后台解码出 unionId
-        //         var that = this;
-        //         that.globalData.userInfo = res.userInfo;
-        //         console.log("app.js入口：onLaunch获取的用户信息,并设置为globalData的：");
-        //         console.log(that.globalData.userInfo);
-        //         wx.request({
-        //             url: config.url+'/person/',
-        //             data: {
-        //                 'username':res.userInfo.nickName,
-        //                 'avatarUrl': res.userInfo.avatarUrl
-        //             },
-        //             method: 'POST',
-        //             success: function(user_res){
-        //                 that.globalData.user_id = user_res.data.userId
-        //                 that.globalData.avatar_url = user_res.data.avatarUrl
-        //                 console.log("用当前用户调用后台接口/person成功新建用户/查到用户后，设置的globalData：")
-        //                 console.log(that.globalData);
-        //             }
-        //         })
-
-        //         // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-        //         // 所以此处加入 callback 以防止这种情况
-        //         if (this.userInfoReadyCallback) {
-        //             this.userInfoReadyCallback(res)
-        //         }
-        //     }
-        // });
-
 
         //updated on 1208
         // 获取用户信息
         wx.getSetting({
           success: res => {
-            console.log(res);
             if (res.authSetting['scope.userInfo']) {
               console.log("已经授权");
               console.log(this.globalData);
@@ -62,12 +27,12 @@ App({
                       success: function(user_res){
                           that.globalData.user_id = user_res.data.userId
                           that.globalData.avatar_url = user_res.data.avatarUrl
+                          that.globalData.user_realname = user_res.data.realname
+                          that.globalData.user_mobile = user_res.data.mobile
                           console.log("用当前用户调用后台接口/person成功新建用户/查到用户后，设置的globalData：")
                           console.log(that.globalData);
                       }
                   })
-
-
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
                   if (this.userInfoReadyCallback) {
@@ -76,10 +41,10 @@ App({
                 }
               })
             } else {              
-              // 没有授权，重定向到 loading 启动页
+              // 没有授权，重定向到authorize启动页
               console.log("没有授权");
               wx.navigateTo({
-                url: 'pages/authorize/authorize'
+                url: '/pages/authorize/authorize'
               })
             }
           }
@@ -98,7 +63,9 @@ App({
         userInfo: null,
         users:null,
         user_id:null,
-        avatar_url:null
+        avatar_url:null,
+        user_realname:null,
+        user_mobile:null
     },
     data: {
         haveLocation: false,

@@ -30,11 +30,12 @@ Page({
           success: function(user_res){
               app.globalData.user_id = user_res.data.userId
               app.globalData.avatar_url = user_res.data.avatarUrl
+              app.globalData.user_realname = user_res.data.realname
+              app.globalData.user_mobile = user_res.data.mobile
               console.log("用当前用户调用后台接口/person成功新建用户/查到用户后，设置的globalData：")
               console.log(app.globalData);
           }
       })
-
       wx.switchTab({
         url: '../../pages/manage/manage',
       })

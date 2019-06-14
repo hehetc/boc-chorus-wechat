@@ -38,8 +38,44 @@ Page({
                     completed: res.data.completed,
                     processing: res.data.processing
                 });
+
+                that.data.completed.forEach(v => {
+                  //判断是否已经对该活动已签到
+                  wx.request({
+                    url: config.url + '/activity/haveChecked',
+                    data: {
+                      'userId': app.globalData.user_id,
+                      'activityId': v.F_ID
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                      // if (res.data.code) {
+                      //     v.haveChecked = "已签到"
+                      //     this.$set(that.data.completed, 'haveChecked', '已签到')
+                      // }
+                      // else {
+                      //     v.haveChecked = "未签到"
+                      //     this.$set(that.data.processing, 'haveChecked', '未签到')
+                      // }
+                    }
+                  })
+                  
+                });
+              console.log(that.data.completed);
+              that.setData({
+                completed: res.data.completed,
+                processing: res.data.processing
+              });
             }
-        })
+        });
+
+
+
+
+      console.log(this.data.completed);
+
+
+
     },
     tabClick: function (e) {
         this.setData({

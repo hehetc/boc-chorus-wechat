@@ -9,3 +9,7 @@ page,
 .weui-media-box__desc {
   padding-bottom: 8rpx;
 }
+
+.weui-media-box {
+  border-bottom:1rpx solid #dddddd
+}
